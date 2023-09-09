@@ -500,3 +500,5 @@ export const products = [
     "url": "https://http2.mlstatic.com/D_NQ_NP_2X_626713-MLA45754003303_042021-F.webp"
   }
 ];
+
+export const totalProducts = products.length;

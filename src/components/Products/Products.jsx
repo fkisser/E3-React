@@ -1,4 +1,3 @@
-import { products } from "../../data/products";
 import Categories from "./Categories";
 import Product from "./Product";
 import {
@@ -6,15 +5,31 @@ import {
 	ProductsSectionStyled,
 } from "./ProductsStyles";
 import { CategoriesWrapperStyled } from "./CategoriesStyles";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { orderProducts } from "../../redux/products/productsSlice";
 
-const Products = ({ starred, orderedBy = "price", order = "desc" }) => {
-	products?.sort((a, b) => b.price - a.price);
+const Products = ({ starred }) => {
+	const [productsToRender, setProductsToRender] = useState([]);
+	const { products, orderBy, ascendent } = useSelector(
+		(state) => state.products
+	);
+	const { selectedCategory } = useSelector((state) => state.categories);
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(orderProducts([orderBy, ascendent]));
+		const filteredProducts = products.filter((product) => {
+			return selectedCategory ? product.category === selectedCategory : product;
+		});
+		setProductsToRender(filteredProducts);
+	}, [orderBy, ascendent, selectedCategory]);
+
 	{
 		return starred ? (
 			<ProductsSectionStyled>
 				<h2>Productos destacados</h2>
 				<ProductsContainerStyled>
-					{products?.map((product) => {
+					{productsToRender?.map((product) => {
 						return (
 							product.starred && (
 								<Product
@@ -34,7 +49,7 @@ const Products = ({ starred, orderedBy = "price", order = "desc" }) => {
 					<Categories />
 				</CategoriesWrapperStyled>
 				<ProductsContainerStyled>
-					{products?.map((product) => {
+					{productsToRender?.map((product) => {
 						return (
 							<Product
 								key={product.id}

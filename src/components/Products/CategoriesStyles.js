@@ -42,8 +42,4 @@ export const CategoryCardStyled = styled(motion.div)`
   @media(max-width: 576px) {
     padding: .5rem;
   }
-  &:first-child {
-    background-color: var(--selective-yellow);
-    //hasta implementar las funciones
-  }
 `;

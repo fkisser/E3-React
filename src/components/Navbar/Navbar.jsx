@@ -8,13 +8,14 @@ import {
 } from "./NavbarStyles";
 import Logo from "../UI/Logo/Logo";
 import { HiHome } from "react-icons/hi";
-import { FaUserAlt, FaPowerOff } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 import { MdEmojiPeople } from "react-icons/md";
 import { BiSolidCategory } from "react-icons/bi";
 import { motion } from "framer-motion";
 import MenuButton from "../UI/MenuButton/MenuButton";
 import { useMenuContext } from "../../context/MenuContext";
+import Overlay from "../UI/Overlay/Overlay";
 const Navbar = () => {
 	const { open } = useMenuContext();
 	return (
@@ -24,6 +25,7 @@ const Navbar = () => {
 					<Logo min />
 				</LogoNavStyled>
 
+				<Overlay />
 				<MenuButton />
 
 				<LinksContainerStyled open={open}>
@@ -55,10 +57,10 @@ const Navbar = () => {
 						</motion.div>
 					</NavLinkStyled>
 
-					{/* <UserNavLinkStyled to={"/login"}>
+					<UserNavLinkStyled to={"/login"}>
 						<span>Iniciar sesión</span>
 						<FaUserAlt />
-					</UserNavLinkStyled> */}
+					</UserNavLinkStyled>
 				</LinksContainerStyled>
 			</NavbarContentWrapperStyled>
 		</NavbarContainerStyled>

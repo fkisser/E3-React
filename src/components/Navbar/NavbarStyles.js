@@ -34,7 +34,7 @@ export const LinksContainerStyled = styled.nav`
   justify-content: center;
   align-items: center;
   gap: 20px;
-  @media(max-width: 768px) {
+  @media(max-width: 992px) {
     padding: 2rem;
     flex-direction: column;
     justify-content: center;
@@ -65,6 +65,10 @@ export const NavLinkStyled = styled(NavLink)`
   background: none;
   border-radius: 1rem;
   gap: 5px;
+  @media(max-width: 992px) {
+    width: 100%;
+    font-size: x-large;
+  }
   div {
     display: flex;
     align-items: center;
@@ -72,6 +76,10 @@ export const NavLinkStyled = styled(NavLink)`
     gap: 5px;
   }
   &.active{
+    color: var(--selective-yellow);
+    background: var(--dark-blue);
+  }
+  &:hover{
     color: var(--selective-yellow);
     background: var(--dark-blue);
   }

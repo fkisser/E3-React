@@ -1,21 +1,20 @@
 import React from "react";
 import { CategoriesContainerStyled } from "./CategoriesStyles";
-import { categories } from "../../data/categories";
 import Category from "./Category";
+import { useSelector } from "react-redux";
 
 const Categories = () => {
+	const { categories } = useSelector((state) => state.categories);
 	return (
 		<CategoriesContainerStyled>
-			{categories
-				?.sort((a, b) => a.title - b.title)
-				.map((category) => {
-					return (
-						<Category
-							key={category.id}
-							{...category}
-						/>
-					);
-				})}
+			{categories?.map((category) => {
+				return (
+					<Category
+						key={category.id}
+						{...category}
+					/>
+				);
+			})}
 		</CategoriesContainerStyled>
 	);
 };
