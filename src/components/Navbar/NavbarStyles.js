@@ -22,11 +22,17 @@ export const NavbarContentWrapperStyled = styled.div`
   width: 100%;
   max-width: 2000px;
   position: relative;
+  .contentRight{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
 `;
 
 export const LogoNavStyled = styled.div`
   display: flex;
   height: 100%;
+  width: 120px;
 `;
 
 export const LinksContainerStyled = styled.nav`
