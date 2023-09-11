@@ -1,10 +1,11 @@
 export const addProduct = (cartItems, product) => {
+  console.log("desde addProduct");
   const cartProduct = cartItems.find((cartItem) => {
     return cartItem.id === product.id
   })
-  cartProduct ?
-    cartItems.map((cartItem) => {
-      return cartItem.id === productInCart.id
+  return cartProduct ?
+    cartItems?.map((cartItem) => {
+      return cartItem.id === cartProduct.id
         ? {
           ...cartItem,
           quantity: cartItem.quantity + 1
@@ -23,7 +24,7 @@ export const addProduct = (cartItems, product) => {
 export const removeProduct = (cartItems, id) => {
   const productToRemove = cartItems.find((item) => item.id === id);
 
-  (productToRemove.quantity > 1) ?
+  return (productToRemove.quantity > 1) ?
     cartItems.map((item) => {
       return item.id === productToRemove.id
         ? {

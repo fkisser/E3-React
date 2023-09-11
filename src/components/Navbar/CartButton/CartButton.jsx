@@ -7,7 +7,7 @@ import { toggleHiddenCart } from "../../../redux/cart/cartSlice";
 import { toggleNavbar } from "../../../redux/navbar/navbarSlice";
 
 const CartButton = () => {
-	const totalCartItems = useSelector((state) => state.cart.cartItems).reduce(
+	const totalCartItems = useSelector((state) => state.cart.cartItems)?.reduce(
 		(acc, item) => (acc += item.quantity),
 		0
 	);

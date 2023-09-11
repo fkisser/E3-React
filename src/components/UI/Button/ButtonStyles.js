@@ -1,11 +1,11 @@
 import { styled } from "styled-components";
 import { motion } from "framer-motion";
 
-export const StyledButton = styled(motion.button)`
+export const StyledButton = styled.button`
   display: flex;
   justify-content: center;
-  align-items:center;
-  padding: .5rem .5rem;
+  align-items: center;
+  padding: .4rem;
   outline: none;
   border: none;
   border-radius: ${(props) => (props.radius)};

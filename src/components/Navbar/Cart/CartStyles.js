@@ -5,7 +5,8 @@ export const CartStyled = styled(motion.div)`
   z-index: 3;
   position: fixed;
   top: 70px;
-  right: 0;
+  right: ${props => (props.open ? "0" : "-100%")};
+  transition: right 0.3s linear;
   width: 50%;
   height: calc(100vh - 70px);
   transition: right 0.3s linear;
@@ -19,7 +20,7 @@ export const CartStyled = styled(motion.div)`
   gap: 1.5rem;
   background-color: var(--dark-blue);
   padding: 1.5rem;
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
       width: 100%;
   }
   .cartHeader{
@@ -45,13 +46,16 @@ export const CartStyled = styled(motion.div)`
 export const ProductsContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: .5rem;
   height: 100%;
   width: 100%;
   border-radius: .5rem;
   background-color: var(--mid-blue);
-  padding: 1rem;
+  padding: .5rem;
   overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   .empty-msg {
     text-align: center;
     font-size: large;
@@ -75,23 +79,35 @@ export const CartItemStyled = styled.div`
     align-items: center;
     gap: 1rem;
     width: 100%;
-    img {
-      height: 8rem;
-      width: 8rem;
-      object-fit: contain;
-      object-position: center;
-      border: .2rem solid var(--mid-blue);
-      border-radius: .5rem;
+    @media (max-width: 400px) {
+      gap: .3rem;
     }
+    .item-img{
+      display: flex;
+      align-items: center;
+      img {
+        height: 5rem;
+        width: 5rem;
+        object-fit: contain;
+        object-position: center;
+        border: .2rem solid var(--mid-blue);
+        border-radius: .5rem;
+      }
+    }
+    
     .item-text {
       display: flex;
       flex-direction: column;
-      height: 100%;
+      justify-content: space-between;
+      height: 5rem;
       width: 100%;
-      justify-content: space-around;
+      
       .item-title {
         font-size: medium;
         width: 100%;
+        @media (max-width: 576px) {
+            font-size: 13px;
+        }
       }
       .item-price {
         display: flex;
@@ -100,9 +116,13 @@ export const CartItemStyled = styled.div`
         color: var(--selective-yellow);
         border: .2rem solid var(--dark-blue);
         border-radius: .5rem;
-        padding: .5rem;
-        width: 10rem;
+        padding: .2rem;
+        width: 7rem;
         justify-content: center;
+        @media (max-width: 400px) {
+            font-size: medium;
+            width: 5rem;
+        }
       }
     }
   }
@@ -113,17 +133,14 @@ export const CartItemStyled = styled.div`
     justify-content: space-between;
     width: 3rem;
     border-radius: .3rem;
-    gap: .5rem;
     .quantityBtn{
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      height: 100%;
+      width: 2rem;
+      height: 2rem;
       border-radius: .3rem;
       color: white;
-      font-weight: 900;
-      font-size: x-large;
       cursor: pointer;
       :first-child{
         background-color: var(--dark-blue);

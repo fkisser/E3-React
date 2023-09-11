@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { addProduct, removeProduct } from "./cartUtils";
 
 const INITIAL_STATE = {
   cartItems: [],
@@ -10,6 +11,7 @@ const cartSlice = createSlice({
   initialState: INITIAL_STATE,
   reducers: {
     addItem: (state, action) => {
+      console.log("desde addItem");
       return {
         ...state,
         cartItems: addProduct(state.cartItems, action.payload)

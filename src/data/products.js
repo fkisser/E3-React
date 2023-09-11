@@ -261,7 +261,7 @@ export const products = [
   },
   {
     "id": 27,
-    "title": "Mouse inalámbrico Logitech MX Master",
+    "title": "Mouse inalámbrico Logitech Master",
     "description": "Mouse inalámbrico con seguimiento láser de alta precisión y rueda de desplazamiento adaptable. Compatible con varios dispositivos.",
     "category": "Mouse",
     "price": 79.99,

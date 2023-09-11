@@ -49,9 +49,9 @@ export const LinksContainerStyled = styled.nav`
     position: fixed;
     top: 70px;
     right: ${props => (props.open ? "0" : "-100%")};
+    transition: right 0.3s linear;
     width: 50%;
     height: calc(100vh - 70px);
-    transition: right 0.3s linear;
     -webkit-box-shadow: -1px 5px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: -1px 5px 5px 0px rgba(0,0,0,0.75);
     box-shadow: -1px 5px 5px 0px rgba(0,0,0,0.75);
