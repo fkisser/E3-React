@@ -7,14 +7,15 @@ import { toggleHiddenCart } from "../../../redux/cart/cartSlice";
 import { toggleNavbar } from "../../../redux/navbar/navbarSlice";
 
 const MenuButton = () => {
-	const { navbar, cart } = useSelector((state) => state);
+	const openNavbar = useSelector((state) => state.navbar.open);
+	const openCart = useSelector((state) => state.cart.open);
 	const dispatch = useDispatch();
-	return !navbar.open ? (
+	return !openNavbar ? (
 		<motion.div whileTap={{ scale: 0.95 }}>
 			<MenuContainerStyled
 				onClick={() => {
 					dispatch(toggleNavbar());
-					cart.open && dispatch(toggleHiddenCart());
+					openCart && dispatch(toggleHiddenCart());
 				}}>
 				<HiOutlineBars3 />
 			</MenuContainerStyled>

@@ -22,9 +22,11 @@ const Cart = () => {
 			<div className="cartHeader">
 				<Button
 					className="backButton"
-					whileTap={{ scale: 0.95 }}
 					onClick={() => dispatch(toggleHiddenCart())}>
-					<BiArrowBack />
+					<BiArrowBack
+						//lo puse aca pq en el button no andan
+						onClick={() => dispatch(toggleHiddenCart())}
+					/>
 				</Button>
 				<h2>Tu carrito</h2>
 			</div>

@@ -11,7 +11,7 @@ const CartButton = () => {
 		(acc, item) => (acc += item.quantity),
 		0
 	);
-	const openNavbar = useSelector((state) => state.navbar.open);
+	const { open } = useSelector((state) => state.navbar);
 	const dispatch = useDispatch();
 
 	return (
@@ -19,7 +19,7 @@ const CartButton = () => {
 			<CartContainerStyled
 				onClick={() => {
 					dispatch(toggleHiddenCart());
-					openNavbar && dispatch(toggleNavbar());
+					open && dispatch(toggleNavbar());
 				}}>
 				<FaCartShopping />
 				<CartBubbleStyled>{totalCartItems}</CartBubbleStyled>

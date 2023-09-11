@@ -21,7 +21,7 @@ import Cart from "./Cart/Cart";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-	const open = useSelector((state) => state.navbar.open);
+	const { open } = useSelector((state) => state.navbar);
 	return (
 		<NavbarContainerStyled>
 			<Cart />

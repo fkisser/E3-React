@@ -22,7 +22,10 @@ const Product = ({ title, description, price, url, id }) => {
 					<Button
 						onClick={() => dispatch(addItem({ title, price, url, id }))}
 						radius="50%">
-						<FaCartPlus />
+						<FaCartPlus
+							//lo puse aca pq en el button no andan
+							onClick={() => dispatch(addItem({ title, price, url, id }))}
+						/>
 					</Button>
 				</div>
 			</div>

@@ -5,19 +5,20 @@ import { toggleNavbar } from "../../../redux/navbar/navbarSlice";
 import { toggleHiddenCart } from "../../../redux/cart/cartSlice";
 
 const Overlay = () => {
-	const { navbar, cart } = useSelector((state) => state);
+	const openNavbar = useSelector((state) => state.navbar.open);
+	const openCart = useSelector((state) => state.cart.open);
 	const dispatch = useDispatch();
 	return (
 		<>
-			{navbar.open && (
+			{openNavbar && (
 				<OverlayStyled
-					open={navbar.open}
+					open={openNavbar}
 					onClick={() => dispatch(toggleNavbar())}
 				/>
 			)}
-			{cart.open && (
+			{openCart && (
 				<OverlayStyled
-					open={cart.open}
+					open={openCart}
 					onClick={() => dispatch(toggleHiddenCart())}
 				/>
 			)}
