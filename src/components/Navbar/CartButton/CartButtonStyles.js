@@ -7,6 +7,7 @@ export const CartContainerStyled = styled.div`
   align-items: center;
   color: var(--light-blue);
   font-size: 1.8rem;
+  cursor: pointer;
 `;
 
 export const CartBubbleStyled = styled.div`

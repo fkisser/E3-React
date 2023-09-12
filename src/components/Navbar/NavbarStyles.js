@@ -29,7 +29,7 @@ export const NavbarContentWrapperStyled = styled.div`
   }
 `;
 
-export const LogoNavStyled = styled.div`
+export const LogoNavStyled = styled.a`
   display: flex;
   height: 100%;
   width: 120px;
@@ -50,6 +50,7 @@ export const LinksContainerStyled = styled.nav`
     top: 70px;
     right: ${props => (props.open ? "0" : "-100%")};
     transition: right 0.3s linear;
+    z-index: 3;
     width: 50%;
     height: calc(100vh - 70px);
     -webkit-box-shadow: -1px 5px 5px 0px rgba(0,0,0,0.75);

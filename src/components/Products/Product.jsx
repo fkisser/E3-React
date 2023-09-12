@@ -3,6 +3,7 @@ import Button from "../UI/Button/Button";
 import { ProductCardStyled } from "./ProductsStyles";
 import { useDispatch } from "react-redux";
 import { addItem } from "../../redux/cart/cartSlice";
+import { setMessage, toggleModal } from "../../redux/modal/modalSlice";
 
 const Product = ({ title, description, price, url, id }) => {
 	const dispatch = useDispatch();
@@ -20,12 +21,13 @@ const Product = ({ title, description, price, url, id }) => {
 				<div>
 					<p className="price">${price}</p>
 					<Button
-						onClick={() => dispatch(addItem({ title, price, url, id }))}
+						onClick={() => {
+							dispatch(addItem({ title, price, url, id }));
+							dispatch(setMessage("Producto agregado al carrito"));
+							dispatch(toggleModal());
+						}}
 						radius="50%">
-						<FaCartPlus
-							//lo puse aca pq en el button no andan
-							onClick={() => dispatch(addItem({ title, price, url, id }))}
-						/>
+						<FaCartPlus />
 					</Button>
 				</div>
 			</div>

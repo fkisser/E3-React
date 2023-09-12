@@ -8,6 +8,7 @@ export const CartStyled = styled(motion.div)`
   right: ${props => (props.open ? "0" : "-100%")};
   transition: right 0.3s linear;
   width: 50%;
+  max-width: 600px;
   height: calc(100vh - 70px);
   transition: right 0.3s linear;
   -webkit-box-shadow: -1px 5px 5px 0px rgba(0,0,0,0.75);

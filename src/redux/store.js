@@ -6,12 +6,14 @@ import categoriesReducer from "./categories/categoriesSlice";
 import productsReducer from "./products/productsSlice";
 import cartReducer from "./cart/cartSlice";
 import navbarReducer from "./navbar/navbarSlice";
+import modalReducer from "./modal/modalSlice"
 
 const reducers = combineReducers({
   categories: categoriesReducer,
   products: productsReducer,
   cart: cartReducer,
   navbar: navbarReducer,
+  modal: modalReducer
 });
 
 const persistConfig = {

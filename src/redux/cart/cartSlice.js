@@ -11,7 +11,6 @@ const cartSlice = createSlice({
   initialState: INITIAL_STATE,
   reducers: {
     addItem: (state, action) => {
-      console.log("desde addItem");
       return {
         ...state,
         cartItems: addProduct(state.cartItems, action.payload)

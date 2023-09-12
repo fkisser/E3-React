@@ -1,5 +1,4 @@
 export const addProduct = (cartItems, product) => {
-  console.log("desde addProduct");
   const cartProduct = cartItems.find((cartItem) => {
     return cartItem.id === product.id
   })

@@ -10,6 +10,11 @@ import { BiArrowBack, BiSolidTrash } from "react-icons/bi";
 import CartItem from "./CartItem";
 import Button from "../../UI/Button/Button";
 import { clearCart, toggleHiddenCart } from "../../../redux/cart/cartSlice";
+import {
+	setIsConfirm,
+	setMessage,
+	toggleModal,
+} from "../../../redux/modal/modalSlice";
 
 const Cart = () => {
 	const dispatch = useDispatch();
@@ -22,11 +27,10 @@ const Cart = () => {
 			<div className="cartHeader">
 				<Button
 					className="backButton"
-					onClick={() => dispatch(toggleHiddenCart())}>
-					<BiArrowBack
-						//lo puse aca pq en el button no andan
-						onClick={() => dispatch(toggleHiddenCart())}
-					/>
+					onClick={() => {
+						dispatch(toggleHiddenCart());
+					}}>
+					<BiArrowBack />
 				</Button>
 				<h2>Tu carrito</h2>
 			</div>
@@ -51,13 +55,21 @@ const Cart = () => {
 			<BtnsContainerStyled>
 				<Button
 					className="clear-btn"
-					onClick={() => dispatch(clearCart())}
+					onClick={() => {
+						dispatch(clearCart());
+						dispatch(setMessage("Se ha vaciado el carrito"));
+						dispatch(toggleModal());
+					}}
 					disabled={!cartItems.length}>
 					<BiSolidTrash />
 				</Button>
 				<Button
 					whileTap={{ scale: 0.95 }}
-					onClick={""}
+					onClick={() => {
+						dispatch(clearCart());
+						dispatch(setMessage("Gracias por tu compra"));
+						dispatch(toggleModal());
+					}}
 					disabled={!cartItems.length}>
 					Comprar
 				</Button>

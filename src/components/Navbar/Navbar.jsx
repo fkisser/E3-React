@@ -15,10 +15,10 @@ import { BiSolidCategory } from "react-icons/bi";
 import { motion } from "framer-motion";
 import MenuButton from "./MenuButton/MenuButton";
 import CartButton from "./CartButton/CartButton";
-
 import Overlay from "../UI/Overlay/Overlay";
 import Cart from "./Cart/Cart";
 import { useSelector } from "react-redux";
+import Modal from "../UI/Modals/Modal";
 
 const Navbar = () => {
 	const { open } = useSelector((state) => state.navbar);
@@ -26,11 +26,11 @@ const Navbar = () => {
 		<NavbarContainerStyled>
 			<Cart />
 			<NavbarContentWrapperStyled>
-				<LogoNavStyled>
+				<LogoNavStyled href="/">
 					<Logo min />
 				</LogoNavStyled>
-
 				<Overlay />
+				<Modal />
 				<span className="contentRight">
 					<LinksContainerStyled open={open}>
 						<NavLinkStyled to={"/"}>
